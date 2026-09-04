@@ -63,22 +63,36 @@ export default function Home() {
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/60 via-white to-white" />
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Villa moderne au Gabon"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/70 to-slate-900/40" />
+          <div
+            className="absolute inset-0 opacity-40"
+            style={{ background: "radial-gradient(1200px 500px at 20% 20%, rgba(30,94,63,0.55), transparent 60%)" }}
+          />
         </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-10 md:pt-24 md:pb-16">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-14 md:pt-28 md:pb-20">
           <div className="max-w-3xl">
-            <span className="casa-chip mb-5">Immobilier · Gabon</span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.05]">
+            <span
+              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-white mb-6 backdrop-blur-sm"
+              style={{ backgroundColor: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.25)" }}
+            >
+              Immobilier · Gabon
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.05] drop-shadow-sm">
               {settings.tagline || "Trouvez votre chez-vous au Gabon"}
             </h1>
-            <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+            <p className="mt-5 text-base sm:text-lg text-white/85 max-w-2xl leading-relaxed">
               Parcourez des centaines d'annonces vérifiées, filtrez par ville et quartier, et contactez sans compte.
             </p>
           </div>
 
           {/* Filters */}
-          <div className="mt-10 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 md:p-5">
+          <div className="mt-10 bg-white/95 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl p-4 md:p-5">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
               <div className="lg:col-span-2 relative">
                 <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
