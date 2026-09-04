@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 220 25% 10%;
+        --card: 0 0% 100%;
+        --card-foreground: 220 25% 10%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 220 25% 10%;
+        --primary: 149 51% 24%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 220 14% 96%;
+        --secondary-foreground: 220 25% 10%;
+        --muted: 220 14% 96%;
+        --muted-foreground: 220 9% 46%;
+        --accent: 149 51% 94%;
+        --accent-foreground: 149 51% 20%;
+        --destructive: 0 72% 51%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 220 13% 91%;
+        --input: 220 13% 91%;
+        --ring: 149 51% 24%;
+        --radius: 0.75rem;
+        --brand: #1E5E3F;
+    }
+}
+
+html, body {
+    margin: 0;
+    background: #ffffff;
+    color: hsl(var(--foreground));
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Custom Casa utility classes */
+.casa-btn-primary {
+    background-color: var(--brand);
+    color: white;
+    transition: background-color 200ms ease, transform 200ms ease;
+}
+.casa-btn-primary:hover {
+    background-color: color-mix(in srgb, var(--brand) 88%, black);
+    transform: translateY(-1px);
+}
+
+.casa-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    background: rgba(30, 94, 63, 0.08);
+    color: var(--brand);
+}
+
+.casa-card {
+    background: white;
+    border: 1px solid hsl(var(--border));
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.casa-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(15, 23, 42, 0.15);
+}
+.casa-card img.cover {
+    transition: transform 500ms ease;
+}
+.casa-card:hover img.cover {
+    transform: scale(1.05);
+}
+
+.glass-header {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+/* Hide scrollbar for filter row */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@layer base {
+    [data-debug-wrapper="true"] { display: contents !important; }
+}

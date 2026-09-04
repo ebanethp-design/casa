@@ -1,0 +1,85 @@
+{
+  "theme": "light",
+  "typography": {
+    "headings": {
+      "family": "Playfair Display, serif",
+      "weights": ["400", "600", "700"],
+      "usage": "Use for all H1, H2, H3 elements to evoke trust, luxury, and approachability. Apply tracking-tight for sizes above 32px."
+    },
+    "body": {
+      "family": "Manrope, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Use for all paragraphs, inputs, labels, and UI components. Apply leading-relaxed for better legibility."
+    }
+  },
+  "colors": {
+    "primary_background": "#FFFFFF",
+    "secondary_background": "#F9FAFB",
+    "brand_accent": "#1E5E3F",
+    "text_primary": "#111827",
+    "text_secondary": "#4B5563",
+    "border_color": "#E5E7EB",
+    "admin_note": "The brand_accent color (#1E5E3F) MUST be controlled via a CSS variable (e.g., --primary) so the admin can change it dynamically."
+  },
+  "visual_enhancers": {
+    "surfaces": "Use flat solid surfaces with subtle borders (border-border). For sticky headers over images, use Crystal Glassmorphism (backdrop-blur-xl bg-white/70, 1px border-white/40). Do not use fully transparent headers.",
+    "shadows": "Use soft ambient shadows (shadow-sm, shadow-md) on hover states. Avoid harsh or dark drop shadows.",
+    "border_radius": "rounded-2xl for main property cards, rounded-xl for interior images and buttons. Keeps the design friendly and approachable."
+  },
+  "components": {
+    "cards": "Property cards should be borderless or have a very subtle 1px border. The image should take up 60% of the card height. Include price, city, property type, beds, area, and a like (heart) button at the top right of the image.",
+    "buttons": "Pill-shaped (rounded-full) or soft rectangular (rounded-xl). Primary buttons use the brand_accent color.",
+    "forms": "Inputs should have soft backgrounds (bg-gray-50), subtle borders, and focus rings using the brand_accent color. Do not use native date or select; use Shadcn components.",
+    "icons": "Use lucide-react for all UI icons (Heart, MapPin, Bed, Maximize, User, etc.)."
+  },
+  "grids_and_layouts": {
+    "homepage": "Grid layout for listings (grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4) with gap-8. Generous spacing (py-24).",
+    "listing_detail": "Top section uses a 'Bento' grid for images (1 main hero image spanning 2 columns, 2 smaller images stacked on the side).",
+    "admin_dashboard": "Sidebar layout. Dense high-utility grid for managing listings. Go cardless and rectangular here for data clarity."
+  },
+  "motion": {
+    "hover_states": "Images in cards scale up slightly (scale-105) over 300ms ease. Cards lift slightly (-translate-y-1).",
+    "transitions": "Avoid 'transition-all'. Use specific 'transition-transform', 'transition-colors', 'transition-opacity'."
+  },
+  "accessibility": {
+    "contrast": "Ensure white text on the brand_accent color meets WCAG/APCA guidelines.",
+    "testing": "All interactive elements MUST have data-testid attributes (e.g., data-testid='like-button', data-testid='contact-submit')."
+  },
+  "image_urls": {
+    "houses": [
+      "https://images.unsplash.com/photo-1722421492323-eaf9c401befe",
+      "https://images.unsplash.com/photo-1721815693498-cc28507c0ba2",
+      "https://images.unsplash.com/photo-1698994705178-d244d73ea573",
+      "https://images.unsplash.com/photo-1628012209120-d9db7abf7eab"
+    ],
+    "apartments": [
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00",
+      "https://images.unsplash.com/photo-1624204386084-dd8c05e32226"
+    ],
+    "interiors": [
+      "https://images.unsplash.com/photo-1705321963943-de94bb3f0dd3",
+      "https://images.pexels.com/photos/7546648/pexels-photo-7546648.jpeg",
+      "https://images.unsplash.com/photo-1724582586529-62622e50c0b3"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Build 'The Casa' as a fullstack app with a light theme. Project uses .js files, so configure React and Shadcn to use JavaScript, avoiding TypeScript (.tsx) extensions.",
+    "Implement the primary color (#1E5E3F) using a CSS variable (--primary) so it can be updated dynamically via the admin dashboard settings.",
+    "Generate exactly 50 fake properties on backend startup using the provided unsplash images (houses/apartments/interiors) and randomize data for the cities (Libreville, Port-Gentil, Franceville, Oyem, Lambaréné).",
+    "Use Playfair Display for headings and Manrope for body text. Add these to the Google Fonts import in index.css.",
+    "Implement the 'Like' functionality using local storage on the frontend, no user account required.",
+    "The Interest Form must collect name, contact, phone, email, post to the backend, and then redirect to home with a Sonner toast notification.",
+    "Admin Side: Protect with a default password. Build a dashboard to view/edit/delete/hide properties and view user submissions. Allow changing the site name and accent color.",
+    "Do NOT center align the app container. Use generous padding (p-6, p-8, p-12) for inner elements.",
+    "Use Shadcn UI components for complex logic (Dialogs, Select, Forms, Dropdowns) but customize them heavily via CSS classes to match the warm, sophisticated design using rounded-xl/rounded-2xl.",
+    "Ensure all interactive elements have a data-testid for automated testing.",
+    "Make sure navigation menus and headers use backdrop-blur glassmorphism if sticky, never fully transparent."
+  ],
+  "universal_guidelines": [
+    "Do not use generic centered layouts or simplistic gradients.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "NEVER apply universal transition ('transition: all').",
+    "Ensure hover states use lighter hues of active states, and always explicitly set text color on hover.",
+    "Prioritize optical alignment over geometric alignment."
+  ]
+}

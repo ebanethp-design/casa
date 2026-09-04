@@ -1,0 +1,29 @@
+{
+  "summary": "First-finish smoke test for The Casa. All 13 backend endpoint checks pass. Core frontend flows (home load, filter, detail, interest submit + redirect + toast, favorites, admin login OK/KO, admin dashboard tabs, settings elements) work end-to-end. No blockers.",
+  "tested_scope": ["backend", "frontend", "auth", "integration"],
+  "passed": [
+    "GET /api/settings returns defaults (site_name=The Casa, accent_color=#1E5E3F)",
+    "GET /api/properties returns 50 seeded properties with expected fields",
+    "GET /api/properties/cities returns 5 cities with neighborhoods",
+    "GET /api/properties?city=Libreville&transaction_type=location returns 5 matching",
+    "GET /api/properties/{id} 200; hidden property returns 404 on public detail",
+    "POST /api/interests returns {ok:true, id:...}",
+    "POST /api/auth/login: 401 wrong, 200 valid JWT correct",
+    "Admin endpoints: 401 without token, 200 with Bearer token (properties, interests)",
+    "Admin POST/PUT/DELETE /api/admin/properties and PUT /api/admin/settings all 200",
+    "Frontend home loads 50 cards, results-count=50",
+    "Filter by city Libreville updates results-count to 11",
+    "Property card click navigates to /bien/{id}",
+    "Interest dialog submits with valid data, shows success toast, redirects to /",
+    "Like button (like-btn-*) toggles favorite; /favoris shows 1 saved card",
+    "/admin wrong password shows French error indicator (Connexion échouée), stays on /admin",
+    "/admin correct login navigates to /admin/dashboard; tabs show Annonces (50), Demandes (2), Paramètres",
+    "Settings tab exposes settings-site-name, settings-color-picker, settings-save"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Admin edit/delete/hide/create dialogs and admin add-interest dialog were not exercised interactively in this latency-sensitive pass (defer to full QA). All corresponding admin API mutations verified directly against backend and testids exist in AdminDashboard.jsx as specified."
+}
