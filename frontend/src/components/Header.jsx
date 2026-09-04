@@ -23,19 +23,12 @@ export default function Header() {
           <button
             data-testid="favorites-btn"
             onClick={() => nav("/favoris")}
-            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white transition-colors"
+            style={{ backgroundColor: "var(--brand)" }}
           >
             <Heart size={16} />
             <span className="hidden sm:inline">Favoris</span>
           </button>
-          <Link
-            to="/admin"
-            data-testid="admin-link"
-            className="px-4 py-2 rounded-full text-sm font-medium text-white transition-colors"
-            style={{ backgroundColor: "var(--brand)" }}
-          >
-            Espace admin
-          </Link>
         </nav>
       </div>
     </header>
